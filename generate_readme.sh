@@ -10,6 +10,6 @@ for DIR in $(ls -d */); do
 		./generate_readme.sh
 		cd ..
 	else
-		echo "\nYou're on your own\n" >> README.md;
+		echo -e "You're on your own\n" >> README.md;
 	fi
 done

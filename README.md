@@ -26,6 +26,11 @@ Status with Build Link is provided below...
 
 # Program List
 
+# AOA
+
+You're on your own
+
+
 # DS
 
 **bst.c** - Menu-Driven program to demonstrate Binary Search Tree  
@@ -64,13 +69,20 @@ Status with Build Link is provided below...
 **StudentDB_ArrayOfObjects.java** - Program which collects and prints details of 'n' number of students  
 
 
+# OS
+
+You're on your own
+
+
 # OSTL
 
-\nYou're on your own\n
+You're on your own
+
 
 # pyInternship
 
-\nYou're on your own\n
+You're on your own
+
 
 # SPA
 
