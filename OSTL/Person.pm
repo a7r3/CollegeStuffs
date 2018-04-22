@@ -1,7 +1,14 @@
 package Person;
 
+# 'new' doesn't necessarily indicate a constructor
+# Other names could be used. It is a OO convention you know.
+# Subroutines with the 'blessing' are valid constructors in Perl
 sub new {
+	# shift keyword removes the first argument from @_
+	# and gives it to the variable to which it is assigned	
+	# This variable holds the Class' name
 	my $class = shift;
+	# Constructing a hash table
 	my $self = {
 		_firstName => shift,
 		_lastName => shift,
@@ -11,12 +18,14 @@ sub new {
 	print "First Name -> $self->{_firstName}\n";
 	print "Last Name -> $self->{_lastName}\n";
 	print "SSN -> $self->{_ssn}\n";
+	# Associating the hash-table (object) before with the ClassName
+	# Thus, when we try to create an Object of 'Person', then this hash-table (Object) is returned
 	bless $self, $class;
+	# Returning the created Object
 	return $self;
 }
 
-# Getter and Setter for FirstName
-
+# Getter and Setter subroutines for 'firstName'
 sub setFirstName {
 	my( $self, $firstName ) = @_;
 	$self->{_firstName} = $firstName if defined($firstName);
