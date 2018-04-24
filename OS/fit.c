@@ -1,80 +1,94 @@
 #include<stdio.h>
 #define MAX_PARTITIONS 10
 
-int mem_array[MAX_PARTITIONS];
-
-int process_mem[MAX_PARTITIONS];
+int memory[MAX_PARTITIONS];
+int memory_copy[MAX_PARTITIONS];
+int process[MAX_PARTITIONS];
 
 int n = MAX_PARTITIONS;
 int p = MAX_PARTITIONS;
 
+void restore_memory() {
+	for(int i = 0; i < n; i++) {
+		memory[i] = memory_copy[i];
+	}
+}
 void first_fit(){
 	int i, j;
-	printf("\n\n== First Fit ==\n");
+	printf("\n\n=== First Fit ===\n");
+	// For Each Process
 	for(j = 0; j < n; j++) {
+		// Among Each Memory Partition
 		for(i = 0; i < p; i++) {
-			if(process_mem[j] <= mem_array[i]) {
-				mem_array[i] -= process_mem[j];
-				printf("\nP%d (%dK) -> Block %d", j, process_mem[j], i+1);
+			// If current partition can satisfy the memory
+			// requirements of this process
+			if(process[j] <= memory[i]) {
+				// Deduct the process memory from the Partition
+				// And Show that it has been allocated
+				memory[i] -= process[j];
+				printf("\nP%d (%dK) -> Block %d", j, process[j], i+1);
 				break;
 			}
 		}
+		// If we still didn't get a partition with sufficient space, it can't be
+		// Allocated. Show the same
 		if(i == p)
-			printf("\nP%d (%dK) -> Unallocated", j, process_mem[j]);
+			printf("\nP%d (%dK) -> Unallocated", j, process[j]);
 	}
 }
 
 void best_fit(){
 	int i, j;
-	printf("\n\n== Best Fit ==\n");
+	printf("\n\n=== Best Fit ===\n");
 	for(i = 0; i < n; i++) {
 		int min = -1;
 		for(j = 0; j < p; j++) {
-			int current = mem_array[j] - process_mem[i];
+			int current = memory[j] - process[i];
 			if(current >= 0)
-				if((min == -1) || (current < mem_array[min] - process_mem[i]))
+				if((min == -1) || (current < memory[min] - process[i]))
 					min = j;
 		}
 		if(min == -1)
-			printf("\nP%d(%dK) -> Unallocated", i, process_mem[i], min+1);
+			printf("\nP%d (%dK) -> Unallocated", i, process[i], min+1);
 		else {
-			mem_array[min] -= process_mem[i];
-			printf("\nP%d (%dK) -> Block %d", i, process_mem[i], min+1);
+			memory[min] -= process[i];
+			printf("\nP%d (%dK) -> Block %d", i, process[i], min+1);
 		}
 	}
 }
 
 void worst_fit(){
         int i, j;
-        printf("\n\n== Worst Fit ==\n");
+        printf("\n\n=== Worst Fit ===\n");
         for(i = 0; i < n; i++) {
                 int max = -1;
                 for(j = 0; j < p; j++) {
-                        int current = mem_array[j] - process_mem[i];
+                        int current = memory[j] - process[i];
                         if(current >= 0)
-                                if((max == -1) || (current > mem_array[max] - process_mem[i]))
+                                if((max == -1) || (current > memory[max] - process[i]))
                                         max = j;
                 }
                 if(max == -1)
-                        printf("\nP%d(%dK) -> Unallocated", i, process_mem[i], max+1);
+                        printf("\nP%d (%dK) -> Unallocated", i, process[i], max+1);
                 else {
-                        mem_array[max] -= process_mem[i];
-                        printf("\nP%d (%dK) -> Block %d", i, process_mem[i], max+1);
+                        memory[max] -= process[i];
+                        printf("\nP%d (%dK) -> Block %d", i, process[i], max+1);
                 }
         }
 }
 
 void next_fit() {
 	int i, j = 0;
-	while (j <= n) {
-		for(i = 0; i < n; i++) {
-			int current = mem_array[j] - process_mem[i];
+	printf("\n\n=== Next Fit ===\n");
+	for (int i = 0; i < n; i++) { 
+		while (j < p) {
+			int current = memory[j] - process[i];
 			if(current >= 0) {
-				mem_array[j] -= process_mem[i];
-				printf("P%d(%dK) -> Block %d", i, process_mem[i], j+1);
-				j++;
-				continue;
+				memory[j] -= process[i];
+				printf("\nP%d (%dK) -> Block %d", i, process[i], j+1);
+				break;
 			}
+			j++;
 		}
 	}
 }
@@ -85,15 +99,22 @@ void main(){
 	scanf("%d", &p);
 	for(i = 0; i < p; i++) {
 		printf("M%d -> ", i);
-		scanf("%d", &mem_array[i]);
+		scanf("%d", &memory[i]);
+		memory_copy[i] = memory[i];
 	}
 	printf("No. of processes > ");
 	scanf("%d", &n);
 	for(i = 0; i < n; i++) {
 		printf("P%d -> ", i);
-		scanf("%d", &process_mem[i]);
+		scanf("%d", &process[i]);
 	}
-//	first_fit();
-//	best_fit();
+	first_fit();
+	restore_memory();
+	best_fit();
+	restore_memory();
 	worst_fit();
+	restore_memory();
+	next_fit();
+	// Cuz sweg :P
+	restore_memory();
 }
