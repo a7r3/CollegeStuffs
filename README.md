@@ -6,29 +6,35 @@ Variety Languages and Programs Incoming as time passes!
 
 <hr>
 
-Programs are categorized into branches with name as the language  
+Programs are categorized as per the Subject Name
 
 How do I get these programs ?
 
-```git clone https://github.com/a7r3/CollegeStuffs -b <branch> <dirname>```  
-
-```<branch>``` is the branch name and ```<dirname>``` is the folder under which the programs would be cloned  
+```git clone https://github.com/a7r3/CollegeStuffs```  
 
 ### Status
 
 On Every Push activity, an Automated Build is triggered on selective branches. Thanks to [Travis CI](https://travis-ci.org)
 
-Status with Build Link is provided below...  
-
-**C** - [![Build Status](https://travis-ci.org/a7r3/CollegeStuffs.svg?branch=c)](https://travis-ci.org/a7r3/CollegeStuffs)
-
-**Java** - [![Build Status](https://travis-ci.org/a7r3/CollegeStuffs.svg?branch=java)](https://travis-ci.org/a7r3/CollegeStuffs) 
+**Current Status :** [!Status](https://travis-ci.org/a7r3/CollegeStuffs.svg?branch=master)
 
 # Program List
 
 # AOA
 
-You're on your own
+**knapsa.c** - Program to Implement Fractional Knapsack Algorithm  
+
+**lcs.c** - Program to find the Longest common sequence between two given sequences  
+
+**mergesort.c** - Program to implement merge sort  
+
+**nq.c** - Program to implement N-Queens Algorithm  
+
+**prim.c** - Program to Implement Prim's algorithm  
+
+**quicksort.c** -   
+
+**strmat.c** - Program to implement String Matching Algorithms - Naive (COMPLETE) and Rabin-Karp (INCOMPLETE)  
 
 
 # DS
@@ -54,19 +60,7 @@ You're on your own
 
 # OOPM
 
-**bubblesort.java** - Program to perform Bubble Sort  
-
-**constructstuffs.java** - Program which deals with Constructor Usage (Basic/Parameterized/Copy) and Constructor (and Method) Overloading  
-
-**gcd_fact_methodoverload.java** - Program which demonstrates method overloading  
-
-**insertsort_wip.java** - Program to perform Insertion Sort  
-
-**num2byte_typecast.java** - Program which converts a number to byte format - Typecasting you know  
-
-**sinterest.java** - Program which calculates Simple Interest  
-
-**StudentDB_ArrayOfObjects.java** - Program which collects and prints details of 'n' number of students  
+You're on your own
 
 
 # OS

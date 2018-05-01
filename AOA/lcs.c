@@ -1,3 +1,5 @@
+/// Program to find the Longest common sequence between two given sequences
+
 #include<stdio.h>
 #define MAX 10
 

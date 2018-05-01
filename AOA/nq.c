@@ -1,3 +1,8 @@
+/// Program to implement N-Queens Algorithm
+
+// AIM: To place N Queens in a NxN grid such that
+//      no two queens should attack each other
+
 #include<stdio.h>
 #include<stdbool.h>
 #define MAX 64

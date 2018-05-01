@@ -1,3 +1,4 @@
+/// Program to implement String Matching Algorithms - Naive (COMPLETE) and Rabin-Karp (INCOMPLETE)
 #include<stdio.h>
 #define MAX 60
 
