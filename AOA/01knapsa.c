@@ -7,14 +7,14 @@
 
 int max(int x,int y) {
 	if(x>y)
-    	return x;
+              return x;
 	return y;
 }
 
 void main() {
     // n -> No. Of Items
     // m -> Capacity of Knapsack
-	int i, n, j, m;
+    int i, n, j, m;
     // p -> Profits of each Item
     // w -> Weights of each Item
     // v -> The Table!
@@ -43,10 +43,10 @@ void main() {
         scanf("%d", &w[i]);
     }
 
-	printf("\nKnapsack Capacity > ");
-	scanf("%d",&m);
+    printf("\nKnapsack Capacity > ");
+    scanf("%d",&m);
 
-	for(i = 1; i <= n; i++) {
+    for(i = 1; i <= n; i++) {
         for(j = 1; j <= m; j++) {
             if (j < w[i]) {
                 v[i][j] = v[i-1][j];
@@ -86,3 +86,4 @@ void main() {
     }
     printf("\n");
 }
+
