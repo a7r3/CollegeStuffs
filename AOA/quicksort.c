@@ -1,3 +1,5 @@
+/// Program to implement Quick Sort
+
 #include<stdio.h>
 #define RED "\x1b[31m"
 #define NONE "\x1b[0m"

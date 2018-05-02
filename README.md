@@ -16,13 +16,13 @@ How do I get these programs ?
 
 On Every Push activity, an Automated Build is triggered on selective branches. Thanks to [Travis CI](https://travis-ci.org)
 
-**Current Status :** [!Status](https://travis-ci.org/a7r3/CollegeStuffs.svg?branch=master)
+**Current Status :** ![Status](https://travis-ci.org/a7r3/CollegeStuffs.svg?branch=master)
 
 # Program List
 
 # AOA
 
-**01knapsa.c** - Program to demonstrate 0/1 Knapsack Algorithm  
+**01knapsa.c** - Program to demonstrate 0/1 Knapsack Algorithm  
 
 **knapsa.c** - Program to Implement Fractional Knapsack Algorithm  
 
@@ -34,7 +34,7 @@ On Every Push activity, an Automated Build is triggered on selective branches. T
 
 **prim.c** - Program to Implement Prim's algorithm  
 
-**quicksort.c** -   
+**quicksort.c** - Program to implement Quick Sort  
 
 **strmat.c** - Program to implement String Matching Algorithms - Naive (COMPLETE) and Rabin-Karp (INCOMPLETE)  
 
